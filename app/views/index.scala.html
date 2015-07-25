@@ -1,7 +1,11 @@
-@(message: String)
+@(users: List[Map[Symbol, Any]])
 
 @main("Welcome to Play") {
 
-    @play20.welcome(message)
-
+  @users.map{ user =>
+    <dl>
+      <dt>@user('name)</dt>
+      <dd>@user('message)</dt>
+    </dl>
+  }
 }
